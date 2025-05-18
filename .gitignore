@@ -1,0 +1,14 @@
+__pycache__/
+.env
+.terraform/*
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+terraform.tfvars
+
+# Ignore all .tf files
+*.tf
+
+# Commit the following
+!providers.tf
+!variables.tf
