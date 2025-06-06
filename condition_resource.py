@@ -114,7 +114,7 @@ class ConditionResource(NewRelicResource):
 
 	def extract_entities(self, json_data):
 		entities = json_data['data']['actor']['account']['alerts']['nrqlConditionsSearch']['nrqlConditions']
-		patterns_to_remove = ['Web Ping Health Check - BAM', 'Services down for']
+		patterns_to_remove = ['Web Ping Health Check', 'Services down for'] # use this line to filter out any alert conditions you do not want to import into terraform
 		compiled_patterns = [re.compile(pattern) for pattern in patterns_to_remove]
 		filtered_entities = [
 			entity for entity in entities
