@@ -1,7 +1,5 @@
 # newrelic-terraform-importer
 
-**🚧 Work in Progress — Scripts coming soon!**
-
 `newrelic-terraform-importer` is a community-driven utility to help you **automatically import existing New Relic resources into Terraform**, bridging a major gap in observability-as-code workflows.
 
 ## 💡 Why This Exists
@@ -12,38 +10,59 @@ Official tools like [Terraformer](https://github.com/GoogleCloudPlatform/terrafo
 
 This project was born out of that frustration — and aims to:
 
-- ✅ Reduce the manual effort of importing existing New Relic resources
-- ✅ Generate Terraform-compatible `.tf` and `.tfstate` files
-- ✅ Make observability infrastructure truly reproducible
+- ✅ Reduce the manual effort of importing existing New Relic resources  
+- ✅ Generate Terraform-compatible `.tf` files  
+- ✅ Enable `terraform import` automation  
+- ✅ Make observability infrastructure truly reproducible  
 - ✅ Save teams weeks of tedious migration work
 
-## 📦 What This Project Will Include
+## ✅ Currently Supported Resources
 
-> The initial release is in progress and will include the following components:
+> You can import the following New Relic resources today:
 
-- 🔧 Python scripts for fetching and translating New Relic resources
-- 📄 Auto-generation of Terraform config files (`.tf`)
-- 📂 Optional generation of Terraform state files (`terraform import` ready)
-- 📘 Examples and documentation for:
-  - Alert policies
-  - Alert conditions
-  - Synthetic monitors
-  - Notification channels
-  - Workflows
+- **Notification Destinations**
+- **Notification Channels**
+- **NRQL-Based Alert Conditions**
 
-## 📅 Status
+More resource types will be added over time based on community feedback. 
 
-- ✅ Project initialized
-- 🛠️ Python scripts being written (ETA: few days)
-- 📚 Documentation and usage examples will follow shortly
+## 🚀 Getting Started
+
+### 1. Clone and install
+
+- `git clone https://github.com/singh2005/newrelic-terraform-importer.git`
+- `cd newrelic-terraform-importer`
+- `pip install -r requirements.txt`
+
+### 2. Set up your `.env`
+
+- `cp .env.example .env`
+
+Then edit .env to populate your new relic API key and account id.
+
+
+### 3. Initialize Terraform
+
+- `terraform init`
+
+
+### 4. Run an import
+
+To import all resources of a given type:
+
+- `python main.py newrelic_notification_destination`
+
+To import only a specific number of resources (e.g 5 notification destinations):
+
+- `python main.py newrelic_notification_destination 5`
 
 ## 📬 Stay in the Loop
 
 If you're interested in using or contributing to this tool:
 
-- ⭐ Star the repo to follow updates
-- 🐛 File an issue if you’d like to request a feature or share your New Relic import pain points
-- 🤝 PRs and suggestions welcome once the initial version is live!
+- ⭐ Star the repo to follow updates  
+- 🐛 File an issue if you’d like to request a feature or share your New Relic import pain points  
+- 🤝 PRs and suggestions welcome!
 
 ---
 
@@ -56,3 +75,6 @@ Empower SREs, DevOps, and Observability engineers to bring their **existing New 
 ## 📜 License
 
 MIT License — use freely, contribute openly.
+
+
+
